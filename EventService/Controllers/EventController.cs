@@ -15,7 +15,8 @@ namespace EventService.Controllers
         /// <param name="e">Information om den event, der er opstået</param>
         [HttpPost]
         public void RaiseEvent(Event e) {
-            /// TODO: Skriv din kode her - husk også at implementere event-klassen
+            
+            /// TODO: Skriv din kode her - husk også at implementere event-klassen  
         }
 
         /// <summary>
