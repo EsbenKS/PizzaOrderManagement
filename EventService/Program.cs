@@ -1,3 +1,8 @@
+using System;
+using EventService.Data;
+using EventService.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<ApiContext>
+    (opt => opt.UseInMemoryDatabase("PizzaOrderManagementDB"));
+
+builder.Services.AddTransient<IEventService, EventServiceHandler>();
 
 var app = builder.Build();
 
